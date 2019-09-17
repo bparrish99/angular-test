@@ -12,6 +12,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { CustomersComponent } from './customers/customers.component';
+import { ReplayComponent } from './replay/replay.component';
+import { ReplayStatusComponent } from './replay-status/replay-status.component';
 
 @NgModule({
   imports: [
@@ -19,8 +22,8 @@ import { ShippingComponent } from './shipping/shipping.component';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: '', component: ReplayComponent },
+      { path: 'customers', component: CustomersComponent },
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
     ])
@@ -32,7 +35,10 @@ import { ShippingComponent } from './shipping/shipping.component';
     ProductAlertsComponent,
     ProductDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    CustomersComponent,
+    ReplayComponent,
+    ReplayStatusComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [CartService]

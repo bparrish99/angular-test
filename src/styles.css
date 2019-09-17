@@ -15,6 +15,7 @@ body {
 .container {
   display: flex;
   flex-direction: row;
+  vertical-align: middle;
 }
 
 router-outlet + *  {
@@ -45,6 +46,7 @@ a {
   cursor: pointer;
   color: #1976d2;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 a:hover {
@@ -69,6 +71,17 @@ label {
   text-transform: uppercase;
 }
 
+.divider {
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.large-divider {
+  width: 20px;
+  height:auto;
+  display:inline-block;
+}
 /* Button */
 .button, button {
   display: inline-flex;

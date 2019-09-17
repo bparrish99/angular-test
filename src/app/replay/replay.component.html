@@ -1,0 +1,34 @@
+<h3>Replay Command Module</h3>
+
+<div class="container">
+
+  Customer: 
+  <div class="divider"></div>
+  <form [formGroup]="replayForm" (ngSubmit)="onSubmit(replayForm.value)">
+    
+  <select formControlName="customerId" required>
+    <option *ngFor="let customer of customers; index as customerId" [value]="customerId">{{customer.name}}</option>
+  </select>
+  <div class="large-divider"></div>
+  Environment:
+  <div class="divider"></div>
+  
+  <select formControlName="environmentId" required>
+    <option *ngFor="let environment of environments; index as environmentId" [value]="environmentId">{{environment.name}}</option>
+  </select>
+  <div class="divider"></div>
+    <div class="large-divider"></div>
+  Event Processor:
+  <div class="divider"></div>
+  
+  <select class="form-control" required>
+    <option>To be implemented</option>
+  </select>
+  <div class="divider"></div>
+  <button class="button" type="submit">Replay</button>
+  </form>
+
+</div>
+
+<div style="height:20px"></div>
+<app-replay-status></app-replay-status>

@@ -1,0 +1,27 @@
+<h2>Customers</h2>
+
+<div class="cart-item" *ngFor="let customer of customers; index as customerId">
+  <span>{{ customer.name }}</span>
+  <span>(URL tag: {{ customer.urlTag }})<i style="cursor: pointer" (click)="remove(customerId)" class="material-icons">delete</i></span>
+</div>
+
+<h3>Add New Customer</h3>
+
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm.value)">
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="URL tag">
+      URL Tag
+    </label>
+    <input id="urlTag" type="text" formControlName="urlTag">
+  </div>
+  <button class="button" type="submit">Add Customer</button>
+
+</form>
