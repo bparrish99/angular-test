@@ -16,6 +16,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { ReplayComponent } from './replay/replay.component';
 import { ReplayStatusComponent } from './replay-status/replay-status.component';
 import { ReplayService } from './replay.service';
+import { ProcessorService } from './processor.service';
 
 @NgModule({
   imports: [
@@ -42,7 +43,7 @@ import { ReplayService } from './replay.service';
     ReplayStatusComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [CartService, ReplayService]
+  providers: [CartService, ReplayService, ProcessorService]
 })
 export class AppModule { }
 

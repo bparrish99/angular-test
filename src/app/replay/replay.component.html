@@ -4,31 +4,39 @@
 
   <span>    
     <label for="customer">Customer</label>
-    <select formControlName="customer" required>
+    <select (change)="getProcessors(replayForm.value.customer, replayForm.value.environment)" formControlName="customer" required>
+      <option [ngValue]="null" disabled>Select Customer</option>
       <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.name}}</option>
     </select>
   </span>
 
   <span>
     <label for="environment">Environment</label>
-    <select formControlName="environment" required>
+    <select (change)="getProcessors(replayForm.value.customer, replayForm.value.environment)" formControlName="environment" required>
+      <option [ngValue]="null" disabled>Select Environment</option>
       <option *ngFor="let environment of environments" [ngValue]="environment">{{environment.name}}</option>
     </select>
   </span>
   
   <span>
     <label for="processor">Processor</label>
-    <select class="form-control" required>
-      <option>To be implemented</option>
+    <select formControlName="processor" required>
+      <option [ngValue]="null" disabled>Select Processor</option>      
+      <option *ngFor="let processor of processors | async" [ngValue]="processor">{{processor}}</option>
     </select>
   </span>
 
   <span>
-    <button class="button" type="submit" (click)="onSubmit(replayForm.value)">Get Status</button>
-    <button class="button" type="submit" (click)="onSubmit(replayForm.value)">Initiate Replay</button>
+    <button [disabled]="!replayForm.valid" class="button" type="submit" (click)="getStatus(replayForm.value)">Get Status</button>
+    <button [disabled]="!replayForm.valid" class="button" type="submit" (click)="replay(replayForm.value)">Initiate Replay</button>
   </span>
 
 </form>
 
 <div style="height:20px"></div>
-<app-replay-status [customer]="customer" [environment]="environment"></app-replay-status>
+
+<app-replay-status
+  [customer]="customer"
+  [environment]="environment"
+  [processor]="processor"
+></app-replay-status>

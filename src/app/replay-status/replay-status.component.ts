@@ -9,6 +9,7 @@ export class ReplayStatusComponent implements OnInit {
 
   @Input() customer;
   @Input() environment;
+  @Input() processor;
   
   constructor() { }
 

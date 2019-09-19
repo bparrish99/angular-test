@@ -6,6 +6,7 @@ export class ReplayService {
 
   private customer;
   private environment;
+  private processor;
 
   constructor() { }
 
@@ -17,6 +18,10 @@ export class ReplayService {
     return this.environment;
   }
 
+  getProcessor() {
+    return this.processor;
+  }
+
   setCustomer(customer) {
     this.customer = customer;
   }
@@ -25,4 +30,8 @@ export class ReplayService {
     this.environment = environment;
   }
 
+  setProcessor(processor) {
+    this.processor = processor;
+  }
+  
 }
