@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { customers, environments } from '../customers';
 import { FormBuilder } from '@angular/forms';
+import { ReplayService } from '../replay.service';
 
 @Component({
   selector: 'app-replay',
@@ -12,8 +13,12 @@ export class ReplayComponent implements OnInit {
   customers;
   environments;
   replayForm;
+  customer = this.replayService.getCustomer();
+  environment = this.replayService.getEnvironment();
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(
+    private formBuilder: FormBuilder,
+    private replayService: ReplayService) { 
 
   }
 
@@ -21,13 +26,18 @@ export class ReplayComponent implements OnInit {
     this.customers = customers;
     this.environments = environments;
     this.replayForm = this.formBuilder.group({
-      customerId: 0,
-      environmentId: 0
+      customer: this.replayService.getCustomer(),
+      environment: this.replayService.getEnvironment()
     });
   }
 
   onSubmit(replayForm) {
-    window.alert("Initiating replay for " + customers[replayForm.customerId].name + " " + environments[replayForm.environmentId].name + "   (not really)");
+    this.customer = replayForm.customer;
+    this.environment = replayForm.environment;
+    this.replayService.setCustomer(this.customer);
+    this.replayService.setEnvironment(this.environment);
+
+    console.log("Initiating replay for " + replayForm.customer.name + " " + replayForm.environment.name);
   }
 
 }

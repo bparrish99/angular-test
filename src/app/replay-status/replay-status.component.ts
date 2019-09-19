@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-replay-status',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReplayStatusComponent implements OnInit {
 
+  @Input() customer;
+  @Input() environment;
+  
   constructor() { }
 
   ngOnInit() {

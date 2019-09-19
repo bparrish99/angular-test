@@ -1,6 +1,14 @@
-<div class="header">
-REPLAY STATUS
-</div>
-<div>
-  (To be implemented)
+<div *ngIf="customer">
+
+  <div class="header">
+    REPLAY STATUS
+    <span class="customer" *ngIf="customer">
+      {{ customer.name }} {{ environment.name }}
+    </span>
+  </div>
+
+  <div class="status">
+    (Pretend this is the status for {{ customer.name }}.)
+  </div>
+  
 </div>
